@@ -1,0 +1,407 @@
+/* ─── FitZone Stylesheet ─────────────────────────────────────────── */
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap');
+
+/* ─── Base ───────────────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  background-color: #121212;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+h1, h2, h3, h4, .heading-font {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+}
+
+/* ─── Colour tokens ──────────────────────────────────────────────── */
+:root {
+  --neon:        #39ff14;
+  --neon-alt:    #00FFFF;
+  --dark:        #121212;
+  --gray:        #232323;
+  --gray-light:  #333333;
+  --orange:      #FF6B35;
+}
+
+/* ─── Neon effects ───────────────────────────────────────────────── */
+.neon-text     { text-shadow: 0 0 6px var(--neon), 0 0 20px var(--neon); }
+.neon-text-alt { text-shadow: 0 0 6px var(--neon-alt), 0 0 20px var(--neon-alt); }
+.neon-border   { box-shadow: 0 0 6px var(--neon), 0 0 16px rgba(57,255,20,.4); }
+.neon-border-alt { box-shadow: 0 0 6px var(--neon-alt), 0 0 16px rgba(0,255,255,.4); }
+
+/* ─── Buttons ────────────────────────────────────────────────────── */
+.btn-neon {
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.btn-neon:hover {
+  box-shadow: 0 0 12px var(--neon), 0 0 28px rgba(57,255,20,.4);
+  transform: translateY(-2px);
+}
+.btn-neon-alt:hover {
+  box-shadow: 0 0 12px var(--neon-alt), 0 0 28px rgba(0,255,255,.4);
+  transform: translateY(-2px);
+}
+
+/* ─── Nav ────────────────────────────────────────────────────────── */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(18,18,18,.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.nav-link {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: .05em;
+  color: #ccc;
+  transition: color .2s;
+  font-size: .9rem;
+  position: relative;
+  padding-bottom: 2px;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--neon);
+  transition: width .3s;
+}
+.nav-link:hover, .nav-link.active-nav { color: var(--neon); }
+.nav-link.active-nav::after, .nav-link:hover::after { width: 100%; }
+
+/* Mobile menu */
+.mobile-menu {
+  transform: translateX(-100%);
+  transition: transform .3s cubic-bezier(.4,0,.2,1);
+  position: fixed;
+  top: 0; left: 0;
+  height: 100%;
+  width: 280px;
+  background: var(--gray);
+  z-index: 200;
+  padding: 24px;
+}
+.mobile-menu.open { transform: translateX(0); }
+
+#menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  z-index: 199;
+}
+#menu-overlay.open { display: block; }
+
+/* ─── Sections ───────────────────────────────────────────────────── */
+.section {
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+/* ─── Hero ───────────────────────────────────────────────────────── */
+.hero-section {
+  background-image: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.7)),
+    url('https://cdn.pixabay.com/photo/2017/08/07/14/02/people-2604149_1280.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Cards ──────────────────────────────────────────────────────── */
+.workout-card, .nutrition-card {
+  transition: transform .3s, box-shadow .3s;
+}
+.workout-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(57,255,20,.15);
+}
+.nutrition-card:hover { transform: translateY(-5px); }
+
+/* ─── Quote rotation ─────────────────────────────────────────────── */
+.quote-rotation { opacity: 0; transition: opacity .9s; }
+.quote-active   { opacity: 1; }
+
+/* ─── Checkboxes ─────────────────────────────────────────────────── */
+.custom-checkbox {
+  appearance: none;
+  width: 20px; height: 20px;
+  border: 2px solid var(--neon);
+  border-radius: 4px;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.custom-checkbox:checked { background: var(--neon); }
+.custom-checkbox:checked::after {
+  content: '✓';
+  position: absolute;
+  color: #000;
+  font-weight: 700;
+  font-size: 13px;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+/* ─── Progress bar ───────────────────────────────────────────────── */
+.progress-bar { height: 10px; border-radius: 5px; background: #333; overflow: hidden; }
+.progress-bar-fill { height: 100%; background: var(--neon); transition: width 1.5s; }
+
+/* ─── PROGRAMS section ───────────────────────────────────────────── */
+#program-home, #program-ppl, #program-ul, #program-split-detail { display: none; }
+
+.program-choice-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform .3s, box-shadow .3s;
+  min-height: 280px;
+  display: flex;
+  align-items: flex-end;
+}
+.program-choice-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(0,0,0,.5);
+}
+.program-choice-card .card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform .4s;
+}
+.program-choice-card:hover .card-bg { transform: scale(1.06); }
+.program-choice-card .card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.85) 40%, rgba(0,0,0,.2));
+}
+.program-choice-card .card-content { position: relative; z-index: 2; padding: 28px; width: 100%; }
+
+.split-card {
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform .3s, box-shadow .3s;
+  position: relative;
+  min-height: 200px;
+  display: flex;
+  align-items: flex-end;
+}
+.split-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px rgba(0,0,0,.4);
+}
+.split-card .split-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform .4s;
+}
+.split-card:hover .split-bg { transform: scale(1.05); }
+.split-card .split-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.8) 50%, rgba(0,0,0,.1));
+}
+.split-card .split-content { position: relative; z-index: 2; padding: 20px; width: 100%; }
+
+/* Exercise card */
+.exercise-card {
+  transition: transform .3s, box-shadow .3s;
+}
+.exercise-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(57,255,20,.15);
+}
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ─── Exercise Modal ─────────────────────────────────────────────── */
+#exercise-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.85);
+  backdrop-filter: blur(4px);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+#exercise-modal.hidden { display: none; }
+
+.modal-inner {
+  background: var(--gray);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 920px;
+  max-height: 92vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--neon) var(--gray-light);
+}
+.modal-inner::-webkit-scrollbar { width: 5px; }
+.modal-inner::-webkit-scrollbar-track { background: var(--gray-light); }
+.modal-inner::-webkit-scrollbar-thumb { background: var(--neon); border-radius: 10px; }
+
+/* Demo image animation */
+#modal-demo-img {
+  animation: exercise-pulse 3s ease-in-out infinite;
+}
+@keyframes exercise-pulse {
+  0%, 100% { transform: scale(1); filter: brightness(1); }
+  50%       { transform: scale(1.04); filter: brightness(1.1); }
+}
+
+/* Modal tabs */
+.tab-btn {
+  padding: 8px 20px;
+  border-radius: 24px;
+  font-weight: 700;
+  font-size: .85rem;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: .05em;
+  color: #aaa;
+  background: transparent;
+  border: 1px solid var(--gray-light);
+  cursor: pointer;
+  transition: all .2s;
+}
+.tab-btn:hover { color: white; border-color: #666; }
+.tab-btn.tab-active {
+  background: var(--neon);
+  color: var(--dark);
+  border-color: var(--neon);
+}
+
+/* ─── Muscle diagram SVG ─────────────────────────────────────────── */
+.svg-muscle {
+  transition: fill .3s, filter .3s;
+}
+.inactive-m {
+  fill: #3a3a3a;
+  stroke: #4a4a4a;
+  stroke-width: 1;
+}
+.primary-m {
+  fill: var(--neon);
+  stroke: var(--neon);
+  stroke-width: 1;
+  filter: drop-shadow(0 0 5px var(--neon));
+  animation: muscle-glow 1.6s ease-in-out infinite;
+}
+.secondary-m {
+  fill: var(--neon-alt);
+  stroke: var(--neon-alt);
+  stroke-width: 1;
+  filter: drop-shadow(0 0 4px var(--neon-alt));
+  animation: muscle-glow-alt 1.6s ease-in-out infinite;
+}
+@keyframes muscle-glow {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: .65; }
+}
+@keyframes muscle-glow-alt {
+  0%, 100% { opacity: .9; }
+  50%       { opacity: .55; }
+}
+
+/* Muscle legend */
+.legend-primary   { background: var(--neon); }
+.legend-secondary { background: var(--neon-alt); }
+.legend-inactive  { background: #3a3a3a; }
+
+/* ─── Coaches ────────────────────────────────────────────────────── */
+.coach-card-featured {
+  border: 1px solid rgba(57,255,20,.15);
+  transition: border-color .3s;
+}
+.coach-card-featured:hover { border-color: rgba(57,255,20,.35); }
+
+.social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: white;
+  font-size: 15px;
+  transition: transform .2s, box-shadow .2s;
+}
+.social-icon-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.4);
+}
+
+/* ─── BMI modal ──────────────────────────────────────────────────── */
+#bmi-calculator {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 250;
+  padding: 16px;
+}
+#bmi-calculator.hidden { display: none; }
+
+/* ─── Form inputs ────────────────────────────────────────────────── */
+input, select, textarea {
+  background: var(--dark);
+  border: 1px solid var(--gray-light);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: white;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: .9rem;
+  transition: border-color .2s;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--neon);
+  box-shadow: 0 0 0 2px rgba(57,255,20,.1);
+}
+select option { background: var(--dark); }
+
+/* ─── Footer ─────────────────────────────────────────────────────── */
+footer a:hover { color: var(--neon); }
+
+/* ─── Scrollbar global ───────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb { background: var(--gray-light); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--neon); }
+
+/* ─── Responsive tweaks ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero-section { background-attachment: scroll; height: 85vh; }
+  .program-choice-card { min-height: 220px; }
+}

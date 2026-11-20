@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FitZone — Transform Your Body. Build Your Strength. Live Healthy.</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'fitzone-dark': '#121212',
+            'fitzone-gray': '#232323',
+            'fitzone-gray-light': '#333333',
+            'fitzone-neon': '#39ff14',
+            'fitzone-neon-alt': '#00FFFF'
+          },
+          fontFamily: {
+            'oswald':     ['Oswald', 'sans-serif'],
+            'montserrat': ['Montserrat', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+
+<!-- ══════════════════════ NAV ══════════════════════════════════ -->
+<header>
+  <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <div class="flex items-center gap-8">
+      <a href="javascript:void(0)" onclick="showSection('home')" class="text-2xl font-bold neon-text" style="font-family:'Oswald',sans-serif;letter-spacing:.05em;">
+        FitZone
+      </a>
+      <div class="hidden lg:flex items-center gap-5">
+        <a href="javascript:void(0)" onclick="showSection('home')"      class="nav-link" data-section="home">HOME</a>
+        <a href="javascript:void(0)" onclick="showSection('programs')"  class="nav-link" data-section="programs">PROGRAMS</a>
+        <a href="javascript:void(0)" onclick="showSection('workouts')"  class="nav-link" data-section="workouts">WORKOUTS</a>
+        <a href="javascript:void(0)" onclick="showSection('nutrition')" class="nav-link" data-section="nutrition">NUTRITION</a>
+        <a href="javascript:void(0)" onclick="showSection('progress')"  class="nav-link" data-section="progress">PROGRESS</a>
+        <a href="javascript:void(0)" onclick="showSection('coaches')"   class="nav-link" data-section="coaches">COACHES</a>
+        <a href="javascript:void(0)" onclick="showSection('about')"     class="nav-link" data-section="about">ABOUT</a>
+        <a href="javascript:void(0)" onclick="showSection('contact')"   class="nav-link" data-section="contact">CONTACT</a>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <button class="hidden md:flex items-center gap-2 bg-fitzone-neon text-fitzone-dark px-5 py-2 rounded-full font-bold text-sm btn-neon" style="font-family:'Oswald',sans-serif;">
+        <i class="fas fa-user"></i> JOIN FREE
+      </button>
+      <button id="mobile-menu-btn" class="lg:hidden text-white text-2xl p-1">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- Mobile menu overlay -->
+<div id="menu-overlay"></div>
+<div id="mobile-menu" class="mobile-menu">
+  <div class="flex justify-between items-center mb-8">
+    <span class="text-xl font-bold neon-text" style="font-family:'Oswald',sans-serif;">FitZone</span>
+    <button id="close-menu-btn" class="text-white text-2xl"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="flex flex-col gap-5">
+    <a href="javascript:void(0)" onclick="showSection('home');closeMobileMenu()"      class="nav-link text-lg" data-section="home">HOME</a>
+    <a href="javascript:void(0)" onclick="showSection('programs');closeMobileMenu()"  class="nav-link text-lg" data-section="programs">PROGRAMS</a>
+    <a href="javascript:void(0)" onclick="showSection('workouts');closeMobileMenu()"  class="nav-link text-lg" data-section="workouts">WORKOUTS</a>
+    <a href="javascript:void(0)" onclick="showSection('nutrition');closeMobileMenu()" class="nav-link text-lg" data-section="nutrition">NUTRITION</a>
+    <a href="javascript:void(0)" onclick="showSection('progress');closeMobileMenu()"  class="nav-link text-lg" data-section="progress">PROGRESS</a>
+    <a href="javascript:void(0)" onclick="showSection('coaches');closeMobileMenu()"   class="nav-link text-lg" data-section="coaches">COACHES</a>
+    <a href="javascript:void(0)" onclick="showSection('about');closeMobileMenu()"     class="nav-link text-lg" data-section="about">ABOUT</a>
+    <a href="javascript:void(0)" onclick="showSection('contact');closeMobileMenu()"   class="nav-link text-lg" data-section="contact">CONTACT</a>
+    <button class="bg-fitzone-neon text-fitzone-dark px-5 py-2 rounded-full font-bold btn-neon mt-2">JOIN FREE</button>
+  </div>
+</div>
+
+<main>
+<!-- ══════════════════════ HOME ══════════════════════════════════ -->
+<section id="home-section" class="section">
+
+  <!-- Hero -->
+  <div class="hero-section">
+    <div class="container mx-auto px-4 text-center">
+      <div class="inline-block bg-fitzone-neon/10 border border-fitzone-neon/30 text-fitzone-neon text-sm font-bold px-4 py-1 rounded-full mb-6" style="font-family:'Oswald',sans-serif;">
+        🔥 YOUR FITNESS TRANSFORMATION STARTS NOW
+      </div>
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+        <span class="block">Transform Your Body.</span>
+        <span class="block">Build Your Strength.</span>
+        <span class="block neon-text">Live Healthy.</span>
+      </h1>
+      <p class="text-lg md:text-xl mb-10 max-w-2xl mx-auto text-gray-300">
+        Professional workout programs, nutrition guidance, and expert coaching — all in one place.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <button onclick="showSection('programs')" class="bg-fitzone-neon text-fitzone-dark px-8 py-3 rounded-full font-bold text-lg btn-neon" style="font-family:'Oswald',sans-serif;">
+          <i class="fas fa-dumbbell mr-2"></i>VIEW PROGRAMS
+        </button>
+        <button onclick="showSection('coaches')" class="bg-transparent border-2 border-fitzone-neon text-fitzone-neon px-8 py-3 rounded-full font-bold text-lg btn-neon" style="font-family:'Oswald',sans-serif;">
+          <i class="fas fa-user-tie mr-2"></i>MEET THE COACHES
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="bg-fitzone-gray border-y border-fitzone-gray-light py-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div><p class="text-3xl font-bold neon-text">500+</p><p class="text-gray-400 text-sm">Exercises</p></div>
+        <div><p class="text-3xl font-bold neon-text">12</p><p class="text-gray-400 text-sm">Programs</p></div>
+        <div><p class="text-3xl font-bold neon-text">Expert</p><p class="text-gray-400 text-sm">Coaches</p></div>
+        <div><p class="text-3xl font-bold neon-text">Free</p><p class="text-gray-400 text-sm">To Start</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Workout Categories -->
+  <div class="container mx-auto px-4 py-20">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold mb-3">WORKOUT CATEGORIES</h2>
+      <p class="text-gray-400">Choose your training style and start building today</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="bg-fitzone-gray rounded-xl p-6 workout-card cursor-pointer" onclick="showSection('programs')">
+        <div class="w-14 h-14 rounded-full bg-fitzone-neon flex items-center justify-center mb-4 mx-auto">
+          <i class="fas fa-dumbbell text-fitzone-dark text-xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-center mb-2">STRENGTH</h3>
+        <p class="text-gray-400 text-center text-sm">Build muscle mass, increase strength, and develop overall power with structured programs.</p>
+      </div>
+      <div class="bg-fitzone-gray rounded-xl p-6 workout-card cursor-pointer" onclick="showSection('workouts')">
+        <div class="w-14 h-14 rounded-full bg-fitzone-neon flex items-center justify-center mb-4 mx-auto">
+          <i class="fas fa-running text-fitzone-dark text-xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-center mb-2">CARDIO</h3>
+        <p class="text-gray-400 text-center text-sm">Boost endurance, burn calories, and improve heart health with cardio routines.</p>
+      </div>
+      <div class="bg-fitzone-gray rounded-xl p-6 workout-card cursor-pointer" onclick="showSection('workouts')">
+        <div class="w-14 h-14 rounded-full bg-fitzone-neon flex items-center justify-center mb-4 mx-auto">
+          <i class="fas fa-pray text-fitzone-dark text-xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-center mb-2">YOGA</h3>
+        <p class="text-gray-400 text-center text-sm">Enhance flexibility, balance, and mental focus with our yoga sessions.</p>
+      </div>
+      <div class="bg-fitzone-gray rounded-xl p-6 workout-card cursor-pointer" onclick="showSection('workouts')">
+        <div class="w-14 h-14 rounded-full bg-fitzone-neon flex items-center justify-center mb-4 mx-auto">
+          <i class="fas fa-fire-alt text-fitzone-dark text-xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-center mb-2">HIIT</h3>
+        <p class="text-gray-400 text-center text-sm">Maximize calorie burn and conditioning with high-intensity interval training.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Motivational Quote -->
+  <div class="bg-fitzone-gray py-12">
+    <div class="container mx-auto px-4 text-center">
+      <i class="fas fa-quote-left text-fitzone-neon text-3xl mb-4 block"></i>
+      <p id="quote-text" class="text-2xl md:text-3xl font-bold italic quote-rotation quote-active">
+        "The only bad workout is the one that didn't happen."
+      </p>
+      <p id="quote-author" class="text-lg mt-4 text-fitzone-neon quote-rotation quote-active">— FitZone</p>
+    </div>
+  </div>
+
+  <!-- Workout of the Day -->
+  <div class="container mx-auto px-4 py-20">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl font-bold mb-2">WORKOUT OF THE DAY</h2>
+      <p class="text-gray-400">Try this recommended routine today</p>
+    </div>
+    <div class="bg-fitzone-gray rounded-2xl overflow-hidden max-w-4xl mx-auto">
+      <div class="flex flex-col md:flex-row">
+        <div class="md:w-2/5">
+          <img src="https://cdn.pixabay.com/photo/2016/11/22/22/25/abs-1850926_1280.jpg" alt="Core workout" class="w-full h-64 md:h-full object-cover">
+        </div>
+        <div class="p-8 md:w-3/5">
+          <span class="text-xs font-bold text-fitzone-neon bg-fitzone-neon/10 px-3 py-1 rounded-full border border-fitzone-neon/30 mb-4 inline-block">TODAY'S PICK</span>
+          <h3 class="text-2xl font-bold mb-2 text-fitzone-neon">Core Crusher</h3>
+          <p class="text-gray-300 text-sm mb-5">A quick but effective core workout that strengthens abs, obliques, and lower back.</p>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-center gap-3 text-sm"><i class="fas fa-check w-5 h-5 rounded-full bg-fitzone-neon/20 text-fitzone-neon flex items-center justify-center text-xs"></i>Plank — 3 sets × 30-60 seconds</li>
+            <li class="flex items-center gap-3 text-sm"><i class="fas fa-check w-5 h-5 rounded-full bg-fitzone-neon/20 text-fitzone-neon flex items-center justify-center text-xs"></i>Russian Twists — 3 sets × 20 reps</li>
+            <li class="flex items-center gap-3 text-sm"><i class="fas fa-check w-5 h-5 rounded-full bg-fitzone-neon/20 text-fitzone-neon flex items-center justify-center text-xs"></i>Mountain Climbers — 3 sets × 30 sec</li>
+            <li class="flex items-center gap-3 text-sm"><i class="fas fa-check w-5 h-5 rounded-full bg-fitzone-neon/20 text-fitzone-neon flex items-center justify-center text-xs"></i>Bicycle Crunches — 3 sets × 20 reps</li>
+          </ul>
+          <button onclick="showSection('programs')" class="bg-fitzone-neon text-fitzone-dark px-6 py-2 rounded-full font-bold btn-neon text-sm" style="font-family:'Oswald',sans-serif;">
+            VIEW ALL PROGRAMS →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Coach Banner -->
+  <div class="bg-gradient-to-r from-fitzone-gray to-fitzone-dark border-y border-fitzone-gray-light py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-3">TRAIN WITH COACH NEIL BEIN</h2>
+      <p class="text-gray-400 max-w-xl mx-auto mb-8">Get personalized training programs, expert form guidance, and direct access to your coach. Achieve results faster with professional coaching.</p>
+      <button onclick="showSection('coaches')" class="bg-fitzone-neon text-fitzone-dark px-8 py-3 rounded-full font-bold text-lg btn-neon" style="font-family:'Oswald',sans-serif;">
+        MEET YOUR COACH
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ PROGRAMS ══════════════════════════════ -->
+<section id="programs-section" class="section container mx-auto px-4">
+  <div class="text-center mb-10">
+    <h2 class="text-3xl md:text-4xl font-bold mb-3">WORKOUT PROGRAMS</h2>
+    <p class="text-gray-400">Choose your split, follow the program, track your progress</p>
+  </div>
+
+  <!-- Home: Choose program type -->
+  <div id="program-home">
+    <h3 class="text-xl font-bold text-center text-gray-400 mb-8">SELECT YOUR PROGRAM</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+
+      <!-- PPL Card -->
+      <div class="program-choice-card" onclick="showPPLHome()">
+        <div class="card-bg" style="background-image:url('https://cdn.pixabay.com/photo/2016/11/29/09/10/man-1868632_1280.jpg')"></div>
+        <div class="card-overlay"></div>
+        <div class="card-content">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="text-xs font-bold bg-fitzone-neon text-fitzone-dark px-3 py-1 rounded-full">3 DAYS / SPLIT</span>
+          </div>
+          <h3 class="text-3xl font-bold mb-1">PPL</h3>
+          <p class="text-fitzone-neon font-bold text-sm mb-2">PUSH · PULL · LEGS</p>
+          <p class="text-gray-300 text-sm mb-4">The most popular and effective split for muscle gain. Train 3-6 days per week.</p>
+          <div class="flex gap-2">
+            <span class="text-xs bg-white/10 px-2 py-1 rounded">Push Day</span>
+            <span class="text-xs bg-white/10 px-2 py-1 rounded">Pull Day</span>
+            <span class="text-xs bg-white/10 px-2 py-1 rounded">Legs Day</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upper/Lower Card -->
+      <div class="program-choice-card" onclick="showULHome()">
+        <div class="card-bg" style="background-image:url('https://cdn.pixabay.com/photo/2018/04/05/17/21/kettlebell-3293475_1280.jpg')"></div>
+        <div class="card-overlay"></div>
+        <div class="card-content">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="text-xs font-bold bg-fitzone-neon-alt text-fitzone-dark px-3 py-1 rounded-full">2 DAYS / SPLIT</span>
+          </div>
+          <h3 class="text-3xl font-bold mb-1">UPPER / LOWER</h3>
+          <p class="text-fitzone-neon-alt font-bold text-sm mb-2">UPPER BODY · LOWER BODY</p>
+          <p class="text-gray-300 text-sm mb-4">Classic split for beginners and intermediate lifters. Train 4 days per week.</p>
+          <div class="flex gap-2">
+            <span class="text-xs bg-white/10 px-2 py-1 rounded">Upper Body</span>
+            <span class="text-xs bg-white/10 px-2 py-1 rounded">Lower Body</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Program tips -->
+    <div class="mt-16 max-w-4xl mx-auto">
+      <h3 class="text-xl font-bold text-center mb-8 text-gray-400">HOW TO CHOOSE YOUR PROGRAM</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-fitzone-gray rounded-xl p-6 border-l-4 border-fitzone-neon">
+          <h4 class="font-bold mb-2 text-fitzone-neon">PPL — Best for:</h4>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li><i class="fas fa-check text-fitzone-neon mr-2"></i>Intermediate to advanced lifters</li>
+            <li><i class="fas fa-check text-fitzone-neon mr-2"></i>Training 4-6 days per week</li>
+            <li><i class="fas fa-check text-fitzone-neon mr-2"></i>Maximum muscle specialization</li>
+            <li><i class="fas fa-check text-fitzone-neon mr-2"></i>High volume training approach</li>
+          </ul>
+        </div>
+        <div class="bg-fitzone-gray rounded-xl p-6 border-l-4 border-fitzone-neon-alt">
+          <h4 class="font-bold mb-2 text-fitzone-neon-alt">Upper/Lower — Best for:</h4>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li><i class="fas fa-check text-fitzone-neon-alt mr-2"></i>Beginners and intermediates</li>
+            <li><i class="fas fa-check text-fitzone-neon-alt mr-2"></i>Training 3-4 days per week</li>
+            <li><i class="fas fa-check text-fitzone-neon-alt mr-2"></i>Simple, balanced structure</li>
+            <li><i class="fas fa-check text-fitzone-neon-alt mr-2"></i>Strength and size together</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PPL sub-page -->
+  <div id="program-ppl">
+    <div class="mb-6">
+      <button onclick="showProgramHome()" class="flex items-center gap-2 text-gray-400 hover:text-white transition text-sm mb-4">
+        <i class="fas fa-arrow-left"></i> Back to Programs
+      </button>
+      <h2 class="text-3xl font-bold mb-1 text-fitzone-neon">PPL — PUSH · PULL · LEGS</h2>
+      <p class="text-gray-400">Select your day to see the full exercise list</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+
+      <!-- Push -->
+      <div class="split-card" onclick="showSplitDetail('push')">
+        <div class="split-bg" style="background-image:url('https://cdn.pixabay.com/photo/2016/11/29/09/10/man-1868632_1280.jpg')"></div>
+        <div class="split-overlay" style="background:linear-gradient(to top,rgba(0,0,0,.85) 50%,rgba(57,255,20,.1))"></div>
+        <div class="split-content">
+          <i class="fas fa-hand-point-up text-fitzone-neon text-2xl mb-2 block"></i>
+          <h3 class="text-2xl font-bold">PUSH</h3>
+          <p class="text-fitzone-neon text-xs font-bold mb-1">CHEST · SHOULDERS · TRICEPS</p>
+          <p class="text-gray-400 text-xs">15 exercises</p>
+        </div>
+      </div>
+
+      <!-- Pull -->
+      <div class="split-card" onclick="showSplitDetail('pull')">
+        <div class="split-bg" style="background-image:url('https://cdn.pixabay.com/photo/2015/07/02/10/22/training-828726_1280.jpg')"></div>
+        <div class="split-overlay" style="background:linear-gradient(to top,rgba(0,0,0,.85) 50%,rgba(0,255,255,.1))"></div>
+        <div class="split-content">
+          <i class="fas fa-hand-point-down text-fitzone-neon-alt text-2xl mb-2 block"></i>
+          <h3 class="text-2xl font-bold">PULL</h3>
+          <p class="text-fitzone-neon-alt text-xs font-bold mb-1">BACK · BICEPS</p>
+          <p class="text-gray-400 text-xs">10 exercises</p>
+        </div>
+      </div>
+
+      <!-- Legs -->
+      <div class="split-card" onclick="showSplitDetail('legs')">
+        <div class="split-bg" style="background-image:url('https://cdn.pixabay.com/photo/2018/04/05/17/21/kettlebell-3293475_1280.jpg')"></div>
+        <div class="split-overlay" style="background:linear-gradient(to top,rgba(0,0,0,.85) 50%,rgba(255,107,53,.1))"></div>
+        <div class="split-content">
+          <i class="fas fa-walking text-orange-400 text-2xl mb-2 block"></i>
+          <h3 class="text-2xl font-bold">LEGS</h3>
+          <p class="text-orange-400 text-xs font-bold mb-1">QUADS · HAMSTRINGS · GLUTES · CALVES</p>
+          <p class="text-gray-400 text-xs">16 exercises</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Upper/Lower sub-page -->
+  <div id="program-ul">
+    <div class="mb-6">
+      <button onclick="showProgramHome()" class="flex items-center gap-2 text-gray-400 hover:text-white transition text-sm mb-4">
+        <i class="fas fa-arrow-left"></i> Back to Programs
+      </button>
+      <h2 class="text-3xl font-bold mb-1 text-fitzone-neon-alt">UPPER / LOWER SPLIT</h2>
+      <p class="text-gray-400">Select your session to see all exercises</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+
+      <!-- Upper -->
+      <div class="split-card" onclick="showSplitDetail('upper')" style="min-height:240px;">
+        <div class="split-bg" style="background-image:url('https://cdn.pixabay.com/photo/2016/11/29/09/10/man-1868632_1280.jpg')"></div>
+        <div class="split-overlay" style="background:linear-gradient(to top,rgba(0,0,0,.85) 50%,rgba(57,255,20,.1))"></div>
+        <div class="split-content">
+          <i class="fas fa-angle-double-up text-fitzone-neon text-3xl mb-2 block"></i>
+          <h3 class="text-2xl font-bold">UPPER BODY</h3>
+          <p class="text-fitzone-neon text-xs font-bold mb-1">CHEST · BACK · SHOULDERS · BICEPS · TRICEPS</p>
+          <p class="text-gray-400 text-xs">25 exercises</p>
+        </div>
+      </div>
+
+      <!-- Lower -->
+      <div class="split-card" onclick="showSplitDetail('lower')" style="min-height:240px;">
+        <div class="split-bg" style="background-image:url('https://cdn.pixabay.com/photo/2018/04/05/17/21/kettlebell-3293475_1280.jpg')"></div>
+        <div class="split-overlay" style="background:linear-gradient(to top,rgba(0,0,0,.85) 50%,rgba(255,107,53,.1))"></div>
+        <div class="split-content">
+          <i class="fas fa-angle-double-down text-orange-400 text-3xl mb-2 block"></i>
+          <h3 class="text-2xl font-bold">LOWER BODY</h3>
+          <p class="text-orange-400 text-xs font-bold mb-1">QUADS · HAMSTRINGS · GLUTES · CALVES</p>
+          <p class="text-gray-400 text-xs">16 exercises</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Split detail view (populated by JS) -->
+  <div id="program-split-detail"></div>
+</section>
+
+<!-- ══════════════════════ WORKOUTS ══════════════════════════════ -->
+<section id="workouts-section" class="section container mx-auto px-4">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-3">WORKOUTS</h2>
+  <p class="text-center text-gray-400 mb-10">Explore our full workout library</p>
+
+  <!-- Filters -->
+  <div class="bg-fitzone-gray rounded-xl p-5 mb-10">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div>
+        <h4 class="text-xs uppercase text-gray-400 mb-2 font-bold">Skill Level</h4>
+        <div class="flex flex-wrap gap-2">
+          <button class="bg-fitzone-dark px-4 py-1.5 rounded-full text-xs hover:bg-fitzone-neon hover:text-fitzone-dark transition font-bold">Beginner</button>
+          <button class="bg-fitzone-dark px-4 py-1.5 rounded-full text-xs hover:bg-fitzone-neon hover:text-fitzone-dark transition font-bold">Intermediate</button>
+          <button class="bg-fitzone-dark px-4 py-1.5 rounded-full text-xs hover:bg-fitzone-neon hover:text-fitzone-dark transition font-bold">Advanced</button>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-xs uppercase text-gray-400 mb-2 font-bold">Duration</h4>
+        <div class="flex flex-wrap gap-2">
+          <button class="bg-fitzone-dark px-4 py-1.5 rounded-full text-xs hover:bg-fitzone-neon hover:text-fitzone-dark transition font-bold">15 mins</button>
+          <button class="bg-fitzone-dark px-4 py-1.5 rounded-full text-xs hover:bg-fitzone-neon hover:text-fitzone-dark transition font-bold">30 mins</button>
+          <button class="bg-fitzone-dark px-4 py-1.5 rounded-full text-xs hover:bg-fitzone-neon hover:text-fitzone-dark transition font-bold">60 mins</button>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-xs uppercase text-gray-400 mb-2 font-bold">Equipment</h4>
+        <div class="flex flex-wrap gap-2">
+          <button class="bg-fitzone-dark px-4 py-1.5 rounded-full text-xs hover:bg-fitzone-neon hover:text-fitzone-dark transition font-bold">Bodyweight</button>
+          <button class="bg-fitzone-dark px-4 py-1.5 rounded-full text-xs hover:bg-fitzone-neon hover:text-fitzone-dark transition font-bold">Dumbbells</button>
+          <button class="bg-fitzone-dark px-4 py-1.5 rounded-full text-xs hover:bg-fitzone-neon hover:text-fitzone-dark transition font-bold">Barbell</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Muscle Building -->
+  <div class="mb-14">
+    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+      <i class="fas fa-dumbbell text-fitzone-neon"></i>Muscle Building
+    </h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-fitzone-gray rounded-xl overflow-hidden workout-card">
+        <img src="https://cdn.pixabay.com/photo/2016/11/29/09/10/man-1868632_1280.jpg" alt="Chest" class="w-full h-48 object-cover">
+        <div class="p-5">
+          <h4 class="text-xl font-bold mb-1">Complete Chest Workout</h4>
+          <p class="text-xs text-gray-400 mb-3">Targets: Chest, Triceps, Shoulders</p>
+          <div class="space-y-1.5 text-sm mb-3">
+            <div class="flex justify-between"><span>Bench Press</span><span class="text-gray-400">4×8-12</span></div>
+            <div class="flex justify-between"><span>Incline DB Press</span><span class="text-gray-400">3×10-12</span></div>
+            <div class="flex justify-between"><span>Cable Fly</span><span class="text-gray-400">3×12-15</span></div>
+          </div>
+          <button onclick="showSection('programs'); showPPLHome();" class="w-full bg-fitzone-gray-light hover:bg-fitzone-neon hover:text-fitzone-dark transition py-2 rounded-lg font-bold text-xs">
+            VIEW IN PROGRAMS
+          </button>
+        </div>
+      </div>
+      <div class="bg-fitzone-gray rounded-xl overflow-hidden workout-card">
+        <img src="https://cdn.pixabay.com/photo/2015/07/02/10/22/training-828726_1280.jpg" alt="Back" class="w-full h-48 object-cover">
+        <div class="p-5">
+          <h4 class="text-xl font-bold mb-1">Back Builder</h4>
+          <p class="text-xs text-gray-400 mb-3">Targets: Back, Biceps, Core</p>
+          <div class="space-y-1.5 text-sm mb-3">
+            <div class="flex justify-between"><span>Pull-Ups</span><span class="text-gray-400">4×6-12</span></div>
+            <div class="flex justify-between"><span>Barbell Rows</span><span class="text-gray-400">4×8-12</span></div>
+            <div class="flex justify-between"><span>Lat Pulldown</span><span class="text-gray-400">3×10-12</span></div>
+          </div>
+          <button onclick="showSection('programs'); showPPLHome();" class="w-full bg-fitzone-gray-light hover:bg-fitzone-neon hover:text-fitzone-dark transition py-2 rounded-lg font-bold text-xs">
+            VIEW IN PROGRAMS
+          </button>
+        </div>
+      </div>
+      <div class="bg-fitzone-gray rounded-xl overflow-hidden workout-card">
+        <img src="https://cdn.pixabay.com/photo/2018/04/05/17/21/kettlebell-3293475_1280.jpg" alt="Legs" class="w-full h-48 object-cover">
+        <div class="p-5">
+          <h4 class="text-xl font-bold mb-1">Leg Day Challenge</h4>
+          <p class="text-xs text-gray-400 mb-3">Targets: Quads, Hamstrings, Glutes</p>
+          <div class="space-y-1.5 text-sm mb-3">
+            <div class="flex justify-between"><span>Barbell Squat</span><span class="text-gray-400">4×6-10</span></div>
+            <div class="flex justify-between"><span>Romanian DL</span><span class="text-gray-400">4×8-12</span></div>
+            <div class="flex justify-between"><span>Hip Thrust</span><span class="text-gray-400">4×10-12</span></div>
+          </div>
+          <button onclick="showSection('programs'); showPPLHome();" class="w-full bg-fitzone-gray-light hover:bg-fitzone-neon hover:text-fitzone-dark transition py-2 rounded-lg font-bold text-xs">
+            VIEW IN PROGRAMS
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cardio -->
+  <div class="mb-14">
+    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+      <i class="fas fa-running text-fitzone-neon"></i>Cardio & Fat Burning
+    </h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-fitzone-gray rounded-xl overflow-hidden workout-card">
+        <img src="https://cdn.pixabay.com/photo/2017/08/06/12/52/woman-2592247_1280.jpg" alt="HIIT" class="w-full h-48 object-cover">
+        <div class="p-5">
+          <h4 class="text-xl font-bold mb-1">HIIT Cardio Blast</h4>
+          <p class="text-xs text-gray-400 mb-3">Full Body · Core · Cardio</p>
+          <div class="space-y-1.5 text-sm mb-3">
+            <div class="flex justify-between"><span>Burpees</span><span class="text-gray-400">30 sec</span></div>
+            <div class="flex justify-between"><span>Mountain Climbers</span><span class="text-gray-400">30 sec</span></div>
+            <div class="flex justify-between"><span>High Knees</span><span class="text-gray-400">30 sec</span></div>
+          </div>
+          <p class="text-xs text-gray-400">Rest: 15 sec · 4 rounds</p>
+        </div>
+      </div>
+      <div class="bg-fitzone-gray rounded-xl overflow-hidden workout-card">
+        <img src="https://cdn.pixabay.com/photo/2014/11/17/13/17/crossfit-534615_1280.jpg" alt="Tabata" class="w-full h-48 object-cover">
+        <div class="p-5">
+          <h4 class="text-xl font-bold mb-1">Tabata Fat Burner</h4>
+          <p class="text-xs text-gray-400 mb-3">Full Body · Metabolism</p>
+          <div class="space-y-1.5 text-sm mb-3">
+            <div class="flex justify-between"><span>Jumping Jacks</span><span class="text-gray-400">20s on / 10s off</span></div>
+            <div class="flex justify-between"><span>Push-Ups</span><span class="text-gray-400">20s on / 10s off</span></div>
+            <div class="flex justify-between"><span>Squats</span><span class="text-gray-400">20s on / 10s off</span></div>
+          </div>
+          <p class="text-xs text-gray-400">8 rounds per exercise</p>
+        </div>
+      </div>
+      <div class="bg-fitzone-gray rounded-xl overflow-hidden workout-card">
+        <img src="https://cdn.pixabay.com/photo/2020/01/21/19/15/adidas-4783841_1280.jpg" alt="Running" class="w-full h-48 object-cover">
+        <div class="p-5">
+          <h4 class="text-xl font-bold mb-1">Interval Running</h4>
+          <p class="text-xs text-gray-400 mb-3">Cardio · Endurance</p>
+          <div class="space-y-1.5 text-sm mb-3">
+            <div class="flex justify-between"><span>Warm-up Jog</span><span class="text-gray-400">5 min</span></div>
+            <div class="flex justify-between"><span>Sprint</span><span class="text-gray-400">30 sec</span></div>
+            <div class="flex justify-between"><span>Recovery Jog</span><span class="text-gray-400">60 sec</span></div>
+          </div>
+          <p class="text-xs text-gray-400">Repeat 10 times</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ NUTRITION ══════════════════════════════ -->
+<section id="nutrition-section" class="section container mx-auto px-4">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-3">DIET & NUTRITION</h2>
+  <p class="text-center text-gray-400 mb-10">Fuel your body right for your fitness goals</p>
+
+  <div class="mb-14">
+    <div class="flex flex-wrap justify-center gap-3 mb-8">
+      <button id="weight-loss-btn" class="px-6 py-2.5 bg-fitzone-neon text-fitzone-dark font-bold rounded-full btn-neon text-sm">Weight Loss</button>
+      <button id="muscle-gain-btn" class="px-6 py-2.5 bg-fitzone-gray text-white font-bold rounded-full text-sm">Muscle Gain</button>
+      <button id="maintenance-btn" class="px-6 py-2.5 bg-fitzone-gray text-white font-bold rounded-full text-sm">Maintenance</button>
+    </div>
+
+    <div id="weight-loss-plan" class="bg-fitzone-gray rounded-2xl p-6">
+      <h3 class="text-2xl font-bold mb-2">Weight Loss Meal Plan</h3>
+      <p class="text-gray-400 text-sm mb-6">~1,500-1,800 calories/day — lean proteins, fiber-rich vegetables, complex carbs</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-fitzone-dark rounded-xl p-4 nutrition-card">
+          <div class="flex items-center gap-2 mb-3"><i class="fas fa-coffee text-fitzone-neon"></i><h4 class="font-bold">Breakfast</h4></div>
+          <img src="https://cdn.pixabay.com/photo/2016/11/06/23/31/breakfast-1804457_1280.jpg" alt="Breakfast" class="w-full h-36 object-cover rounded-lg mb-3">
+          <ul class="space-y-1 text-sm text-gray-300">
+            <li>• Oatmeal with berries (½ cup)</li>
+            <li>• Greek yogurt (150g)</li>
+            <li>• Black coffee or green tea</li>
+          </ul>
+          <p class="text-xs text-gray-500 mt-3">~350 cal · P:20g C:45g F:8g</p>
+        </div>
+        <div class="bg-fitzone-dark rounded-xl p-4 nutrition-card">
+          <div class="flex items-center gap-2 mb-3"><i class="fas fa-utensils text-fitzone-neon"></i><h4 class="font-bold">Lunch</h4></div>
+          <img src="https://cdn.pixabay.com/photo/2017/09/16/19/21/salad-2756467_1280.jpg" alt="Lunch" class="w-full h-36 object-cover rounded-lg mb-3">
+          <ul class="space-y-1 text-sm text-gray-300">
+            <li>• Grilled chicken breast (4oz)</li>
+            <li>• Mixed greens salad</li>
+            <li>• Brown rice (½ cup)</li>
+          </ul>
+          <p class="text-xs text-gray-500 mt-3">~400 cal · P:30g C:35g F:12g</p>
+        </div>
+        <div class="bg-fitzone-dark rounded-xl p-4 nutrition-card">
+          <div class="flex items-center gap-2 mb-3"><i class="fas fa-moon text-fitzone-neon"></i><h4 class="font-bold">Dinner</h4></div>
+          <img src="https://cdn.pixabay.com/photo/2016/08/23/08/53/tacos-1613795_1280.jpg" alt="Dinner" class="w-full h-36 object-cover rounded-lg mb-3">
+          <ul class="space-y-1 text-sm text-gray-300">
+            <li>• Baked salmon (4oz)</li>
+            <li>• Steamed vegetables (1 cup)</li>
+            <li>• Sweet potato (small)</li>
+          </ul>
+          <p class="text-xs text-gray-500 mt-3">~450 cal · P:28g C:40g F:15g</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="muscle-gain-plan" class="bg-fitzone-gray rounded-2xl p-6 hidden">
+      <h3 class="text-2xl font-bold mb-2">Muscle Gain Meal Plan</h3>
+      <p class="text-gray-400 text-sm mb-6">~2,500-3,000 calories/day — high protein, calorie surplus</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-fitzone-dark rounded-xl p-4 nutrition-card">
+          <div class="flex items-center gap-2 mb-3"><i class="fas fa-coffee text-fitzone-neon"></i><h4 class="font-bold">Breakfast</h4></div>
+          <ul class="space-y-1 text-sm text-gray-300 mt-2">
+            <li>• 4 whole eggs + 2 egg whites</li>
+            <li>• Oatmeal (1 cup) with banana</li>
+            <li>• Whole milk (1 cup)</li>
+            <li>• Peanut butter (2 tbsp)</li>
+          </ul>
+          <p class="text-xs text-gray-500 mt-3">~700 cal · P:45g C:70g F:22g</p>
+        </div>
+        <div class="bg-fitzone-dark rounded-xl p-4 nutrition-card">
+          <div class="flex items-center gap-2 mb-3"><i class="fas fa-utensils text-fitzone-neon"></i><h4 class="font-bold">Lunch</h4></div>
+          <ul class="space-y-1 text-sm text-gray-300 mt-2">
+            <li>• Chicken breast (6oz)</li>
+            <li>• White rice (1 cup)</li>
+            <li>• Avocado (½)</li>
+            <li>• Olive oil dressing</li>
+          </ul>
+          <p class="text-xs text-gray-500 mt-3">~750 cal · P:55g C:80g F:20g</p>
+        </div>
+        <div class="bg-fitzone-dark rounded-xl p-4 nutrition-card">
+          <div class="flex items-center gap-2 mb-3"><i class="fas fa-moon text-fitzone-neon"></i><h4 class="font-bold">Dinner</h4></div>
+          <ul class="space-y-1 text-sm text-gray-300 mt-2">
+            <li>• Steak (6oz) or salmon</li>
+            <li>• Pasta or potato</li>
+            <li>• Mixed vegetables</li>
+            <li>• Protein shake before bed</li>
+          </ul>
+          <p class="text-xs text-gray-500 mt-3">~800 cal · P:60g C:75g F:25g</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="maintenance-plan" class="bg-fitzone-gray rounded-2xl p-6 hidden">
+      <h3 class="text-2xl font-bold mb-2">Maintenance Meal Plan</h3>
+      <p class="text-gray-400 text-sm mb-6">~2,000-2,500 calories/day — balanced macros to maintain current physique</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-fitzone-dark rounded-xl p-4 nutrition-card">
+          <div class="flex items-center gap-2 mb-3"><i class="fas fa-coffee text-fitzone-neon"></i><h4 class="font-bold">Breakfast</h4></div>
+          <ul class="space-y-1 text-sm text-gray-300 mt-2">
+            <li>• 3 scrambled eggs</li>
+            <li>• Whole grain toast (2 slices)</li>
+            <li>• Fruit (1 piece)</li>
+            <li>• Coffee or tea</li>
+          </ul>
+          <p class="text-xs text-gray-500 mt-3">~500 cal · P:28g C:55g F:15g</p>
+        </div>
+        <div class="bg-fitzone-dark rounded-xl p-4 nutrition-card">
+          <div class="flex items-center gap-2 mb-3"><i class="fas fa-utensils text-fitzone-neon"></i><h4 class="font-bold">Lunch</h4></div>
+          <ul class="space-y-1 text-sm text-gray-300 mt-2">
+            <li>• Turkey or tuna sandwich</li>
+            <li>• Side salad</li>
+            <li>• Apple</li>
+            <li>• Water or sparkling water</li>
+          </ul>
+          <p class="text-xs text-gray-500 mt-3">~550 cal · P:35g C:60g F:14g</p>
+        </div>
+        <div class="bg-fitzone-dark rounded-xl p-4 nutrition-card">
+          <div class="flex items-center gap-2 mb-3"><i class="fas fa-moon text-fitzone-neon"></i><h4 class="font-bold">Dinner</h4></div>
+          <ul class="space-y-1 text-sm text-gray-300 mt-2">
+            <li>• Chicken, fish, or lean beef</li>
+            <li>• Rice, pasta, or potato</li>
+            <li>• Cooked vegetables</li>
+            <li>• Light dessert optional</li>
+          </ul>
+          <p class="text-xs text-gray-500 mt-3">~650 cal · P:40g C:65g F:18g</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hydration -->
+  <div class="bg-fitzone-gray rounded-2xl p-6 mb-14 flex flex-col md:flex-row items-center gap-6">
+    <div class="text-center md:w-1/5">
+      <i class="fas fa-tint text-fitzone-neon text-5xl"></i>
+    </div>
+    <div class="md:w-4/5">
+      <h3 class="text-2xl font-bold mb-2">Stay Hydrated</h3>
+      <p class="text-gray-400 mb-4 text-sm">Water is essential for performance and recovery. Aim for at least 8 glasses (64oz) daily.</p>
+      <ul class="space-y-2 text-sm">
+        <li class="flex gap-2"><i class="fas fa-check text-fitzone-neon mt-0.5"></i>Drink 16-20oz two hours before training</li>
+        <li class="flex gap-2"><i class="fas fa-check text-fitzone-neon mt-0.5"></i>Drink 8oz every 15 minutes during intense exercise</li>
+        <li class="flex gap-2"><i class="fas fa-check text-fitzone-neon mt-0.5"></i>Rehydrate with electrolytes after sweaty sessions</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ PROGRESS ══════════════════════════════ -->
+<section id="progress-section" class="section container mx-auto px-4">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-3">PROGRESS TRACKER</h2>
+  <p class="text-center text-gray-400 mb-10">Monitor your journey and celebrate every win</p>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <div class="lg:col-span-1">
+      <div class="bg-fitzone-gray rounded-2xl p-6">
+        <h3 class="text-xl font-bold mb-5">Log Your Workout</h3>
+        <form id="workout-log-form" class="space-y-4">
+          <div>
+            <label class="block text-sm font-bold mb-1.5">Date</label>
+            <input type="date" id="workout-date">
+          </div>
+          <div>
+            <label class="block text-sm font-bold mb-1.5">Workout Type</label>
+            <select id="workout-type">
+              <option>Select a workout</option>
+              <option>Push Day (Chest/Shoulder/Tricep)</option>
+              <option>Pull Day (Back/Bicep)</option>
+              <option>Legs Day</option>
+              <option>Upper Body</option>
+              <option>Lower Body</option>
+              <option>HIIT Session</option>
+              <option>Cardio</option>
+            </select>
+          </div>
+          <div class="grid grid-cols-3 gap-3">
+            <div><label class="block text-xs font-bold mb-1">Sets</label><input type="number" id="sets" min="1"></div>
+            <div><label class="block text-xs font-bold mb-1">Reps</label><input type="number" id="reps" min="1"></div>
+            <div><label class="block text-xs font-bold mb-1">Weight</label><input type="number" id="weight" min="0"></div>
+          </div>
+          <div>
+            <label class="block text-sm font-bold mb-1.5">Notes</label>
+            <textarea id="notes" rows="3" placeholder="How did it feel?"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-fitzone-neon text-fitzone-dark font-bold py-2.5 rounded-xl btn-neon">SAVE WORKOUT</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="lg:col-span-2">
+      <div class="bg-fitzone-gray rounded-2xl p-6">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-xl font-bold">Your Progress</h3>
+          <select id="progress-chart-type" class="text-sm py-1.5 px-3 w-auto">
+            <option>Weight Lifted</option>
+            <option>Reps Completed</option>
+            <option>Body Weight</option>
+          </select>
+        </div>
+        <div style="height:220px;"><canvas id="progress-chart"></canvas></div>
+        <h4 class="font-bold mt-6 mb-3">Recent Activity</h4>
+        <div class="space-y-3">
+          <div class="bg-fitzone-dark rounded-xl p-3 flex justify-between items-center">
+            <div><p class="font-bold text-sm">Push Day</p><p class="text-xs text-gray-400">3 days ago</p></div>
+            <div class="text-right"><p class="text-fitzone-neon text-sm">4×12 reps</p><p class="text-xs text-gray-400">Bench: 185 lbs</p></div>
+          </div>
+          <div class="bg-fitzone-dark rounded-xl p-3 flex justify-between items-center">
+            <div><p class="font-bold text-sm">Legs Day</p><p class="text-xs text-gray-400">5 days ago</p></div>
+            <div class="text-right"><p class="text-fitzone-neon text-sm">5×10 reps</p><p class="text-xs text-gray-400">Squats: 225 lbs</p></div>
+          </div>
+          <div class="bg-fitzone-dark rounded-xl p-3 flex justify-between items-center">
+            <div><p class="font-bold text-sm">Pull Day</p><p class="text-xs text-gray-400">1 week ago</p></div>
+            <div class="text-right"><p class="text-fitzone-neon text-sm">3×10 reps</p><p class="text-xs text-gray-400">Pull-ups: BW</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-3">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-fitzone-gray rounded-2xl p-6">
+          <h3 class="text-xl font-bold mb-5">Weekly Goals</h3>
+          <div class="space-y-4">
+            <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" class="custom-checkbox"><span>Complete 4 workouts this week</span></label>
+            <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" class="custom-checkbox"><span>Drink 64oz water daily</span></label>
+            <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" class="custom-checkbox"><span>Hit protein target every day</span></label>
+            <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" class="custom-checkbox"><span>Try one new exercise</span></label>
+            <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" class="custom-checkbox"><span>Stretch 10 mins post-workout</span></label>
+          </div>
+        </div>
+        <div class="bg-fitzone-gray rounded-2xl p-6 flex flex-col items-center justify-center text-center">
+          <i class="fas fa-fire text-fitzone-neon text-4xl mb-4"></i>
+          <p class="text-xl font-bold italic mb-2">"Progress takes time — trust the process."</p>
+          <p class="text-fitzone-neon text-sm mb-4">Remember your why</p>
+          <button class="bmi-calculator-btn bg-fitzone-dark hover:bg-fitzone-gray-light transition px-5 py-2 rounded-full text-sm font-bold">
+            <i class="fas fa-calculator mr-2"></i>BMI Calculator
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ COACHES ═══════════════════════════════ -->
+<section id="coaches-section" class="section container mx-auto px-4">
+  <div class="text-center mb-10">
+    <h2 class="text-3xl md:text-4xl font-bold mb-3">MEET YOUR COACHES</h2>
+    <p class="text-gray-400">Expert trainers ready to guide your transformation journey</p>
+  </div>
+  <div id="coaches-grid">
+    <!-- Rendered by programs.js renderCoaches() -->
+    <div class="text-center py-20 text-gray-500">Loading coaches...</div>
+  </div>
+</section>
+
+<!-- ══════════════════════ ABOUT ══════════════════════════════════ -->
+<section id="about-section" class="section container mx-auto px-4">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-3">ABOUT US</h2>
+  <p class="text-center text-gray-400 mb-10">Our mission to help you achieve your goals</p>
+
+  <div class="bg-fitzone-gray rounded-2xl p-8 mb-14">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h3 class="text-2xl font-bold mb-4">Our Story</h3>
+        <p class="text-gray-300 mb-4 text-sm leading-relaxed">FitZone was created to guide people through their fitness journey — helping them train smarter, eat healthier, and stay consistent. We believe fitness should be accessible, effective, and built on real science.</p>
+        <p class="text-gray-300 mb-6 text-sm leading-relaxed">Founded by certified trainers and nutrition specialists, we have combined our expertise into comprehensive programs suitable for everyone — from complete beginners to competitive athletes.</p>
+        <h3 class="text-xl font-bold mb-2">Our Mission</h3>
+        <p class="text-gray-300 text-sm leading-relaxed">To empower individuals to take control of their health through accessible, science-backed fitness and nutrition guidance that fits into modern lifestyles.</p>
+      </div>
+      <img src="https://cdn.pixabay.com/photo/2017/07/02/19/24/dumbbells-2465478_1280.jpg" alt="Fitness equipment" class="rounded-xl shadow-xl w-full object-cover h-72">
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ CONTACT ════════════════════════════════ -->
+<section id="contact-section" class="section container mx-auto px-4">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-3">CONTACT US</h2>
+  <p class="text-center text-gray-400 mb-10">Have questions? We are here to help!</p>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+    <div class="bg-fitzone-gray rounded-2xl p-6">
+      <h3 class="text-2xl font-bold mb-6">Get In Touch</h3>
+      <form id="contact-form" class="space-y-4">
+        <div><label class="block text-sm font-bold mb-1.5">Your Name</label><input type="text" id="contact-name" placeholder="e.g. Juan dela Cruz"></div>
+        <div><label class="block text-sm font-bold mb-1.5">Email Address</label><input type="email" id="contact-email" placeholder="juan@email.com"></div>
+        <div>
+          <label class="block text-sm font-bold mb-1.5">Subject</label>
+          <select id="contact-subject">
+            <option>General Inquiry</option>
+            <option>Personal Training Inquiry</option>
+            <option>Workout Plans</option>
+            <option>Nutrition Advice</option>
+            <option>Partnership Opportunities</option>
+          </select>
+        </div>
+        <div><label class="block text-sm font-bold mb-1.5">Your Message</label><textarea id="contact-message" rows="5" placeholder="Tell us how we can help..."></textarea></div>
+        <button type="submit" class="w-full bg-fitzone-neon text-fitzone-dark font-bold py-3 rounded-xl btn-neon">SEND MESSAGE</button>
+      </form>
+    </div>
+
+    <div class="space-y-6">
+      <div class="bg-fitzone-gray rounded-2xl p-6">
+        <h3 class="text-xl font-bold mb-5">Contact Information</h3>
+        <div class="space-y-5">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-fitzone-neon/20 flex items-center justify-center flex-shrink-0"><i class="fas fa-envelope text-fitzone-neon"></i></div>
+            <div><p class="font-bold text-sm mb-0.5">Email</p><p class="text-gray-400 text-sm">sulasoktv44@gmail.com</p></div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-fitzone-neon/20 flex items-center justify-center flex-shrink-0"><i class="fas fa-clock text-fitzone-neon"></i></div>
+            <div><p class="font-bold text-sm mb-0.5">Support Hours</p><p class="text-gray-400 text-sm">Mon–Fri: 9AM – 6PM<br>Weekends: 10AM – 3PM</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-fitzone-gray rounded-2xl p-6">
+        <h3 class="text-xl font-bold mb-5">Follow Coach Neil</h3>
+        <div class="grid grid-cols-2 gap-3">
+          <a href="#" class="bg-fitzone-dark rounded-xl p-3 flex items-center gap-3 hover:bg-fitzone-gray-light transition">
+            <div class="w-9 h-9 rounded-full bg-[#1877F2] flex items-center justify-center"><i class="fab fa-facebook-f text-white text-sm"></i></div>
+            <span class="text-sm">Facebook</span>
+          </a>
+          <a href="#" class="bg-fitzone-dark rounded-xl p-3 flex items-center gap-3 hover:bg-fitzone-gray-light transition">
+            <div class="w-9 h-9 rounded-full bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#FCAF45] flex items-center justify-center"><i class="fab fa-instagram text-white text-sm"></i></div>
+            <span class="text-sm">Instagram</span>
+          </a>
+          <a href="#" class="bg-fitzone-dark rounded-xl p-3 flex items-center gap-3 hover:bg-fitzone-gray-light transition">
+            <div class="w-9 h-9 rounded-full bg-[#FF0000] flex items-center justify-center"><i class="fab fa-youtube text-white text-sm"></i></div>
+            <span class="text-sm">YouTube</span>
+          </a>
+          <a href="#" class="bg-fitzone-dark rounded-xl p-3 flex items-center gap-3 hover:bg-fitzone-gray-light transition">
+            <div class="w-9 h-9 rounded-full bg-[#010101] flex items-center justify-center"><i class="fab fa-tiktok text-white text-sm"></i></div>
+            <span class="text-sm">TikTok</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ══════════════════════ FOOTER ═════════════════════════════════ -->
+<footer class="bg-fitzone-dark mt-20 border-t border-fitzone-gray-light">
+  <div class="container mx-auto px-4 py-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div>
+        <h2 class="text-2xl font-bold neon-text mb-3" style="font-family:'Oswald',sans-serif;">FitZone</h2>
+        <p class="text-gray-400 text-sm mb-4">Your ultimate fitness companion for workout programs, nutrition guidance, and progress tracking.</p>
+        <p class="text-xs text-gray-600">© 2026 FitZone. All rights reserved.</p>
+      </div>
+      <div>
+        <h3 class="font-bold mb-4 text-sm uppercase tracking-wider">Quick Links</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="javascript:void(0)" onclick="showSection('programs')"  class="text-gray-400 hover:text-fitzone-neon transition">Programs</a></li>
+          <li><a href="javascript:void(0)" onclick="showSection('workouts')"  class="text-gray-400 hover:text-fitzone-neon transition">Workouts</a></li>
+          <li><a href="javascript:void(0)" onclick="showSection('nutrition')" class="text-gray-400 hover:text-fitzone-neon transition">Nutrition</a></li>
+          <li><a href="javascript:void(0)" onclick="showSection('coaches')"   class="text-gray-400 hover:text-fitzone-neon transition">Coaches</a></li>
+          <li><a href="javascript:void(0)" onclick="showSection('progress')"  class="text-gray-400 hover:text-fitzone-neon transition">Progress Tracker</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold mb-4 text-sm uppercase tracking-wider">Support</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="javascript:void(0)" class="text-gray-400 hover:text-fitzone-neon transition">Help Center</a></li>
+          <li><a href="javascript:void(0)" class="text-gray-400 hover:text-fitzone-neon transition">Privacy Policy</a></li>
+          <li><a href="javascript:void(0)" class="text-gray-400 hover:text-fitzone-neon transition">Terms of Service</a></li>
+          <li><a href="javascript:void(0)" onclick="showSection('contact')" class="text-gray-400 hover:text-fitzone-neon transition">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold mb-4 text-sm uppercase tracking-wider">Get Fitness Tips</h3>
+        <p class="text-gray-400 text-sm mb-3">Subscribe to our newsletter</p>
+        <form class="flex" onsubmit="event.preventDefault(); showToast('Subscribed! Welcome to FitZone.','success')">
+          <input type="email" placeholder="Your email" class="flex-grow rounded-l-lg rounded-r-none text-sm py-2 px-3">
+          <button class="bg-fitzone-neon text-fitzone-dark px-4 py-2 rounded-r-lg font-bold text-sm"><i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════ EXERCISE MODAL ════════════════════════ -->
+<div id="exercise-modal" class="hidden">
+  <div class="modal-inner">
+    <!-- Header -->
+    <div class="flex items-start justify-between p-6 pb-4 border-b border-fitzone-gray-light">
+      <div>
+        <div class="flex items-center gap-3 mb-1">
+          <span id="modal-muscle-label" class="text-xs font-bold bg-fitzone-neon/10 text-fitzone-neon px-2 py-0.5 rounded-full border border-fitzone-neon/20"></span>
+          <span id="modal-difficulty" class="text-xs font-bold"></span>
+        </div>
+        <h2 id="modal-title" class="text-2xl md:text-3xl font-bold"></h2>
+        <p class="text-gray-400 text-sm mt-1"><i class="fas fa-dumbbell mr-1 text-fitzone-neon"></i><span id="modal-equipment"></span></p>
+      </div>
+      <button onclick="closeExerciseModal()" class="text-gray-400 hover:text-white p-2 rounded-full hover:bg-fitzone-gray-light transition ml-4 flex-shrink-0">
+        <i class="fas fa-times text-xl"></i>
+      </button>
+    </div>
+
+    <!-- Stats row -->
+    <div class="grid grid-cols-3 gap-3 p-5 pb-4">
+      <div class="bg-fitzone-dark rounded-xl p-3 text-center">
+        <p class="text-fitzone-neon text-lg font-bold" id="modal-sets">—</p>
+        <p class="text-gray-500 text-xs">Sets</p>
+      </div>
+      <div class="bg-fitzone-dark rounded-xl p-3 text-center">
+        <p class="text-fitzone-neon text-lg font-bold" id="modal-reps">—</p>
+        <p class="text-gray-500 text-xs">Reps</p>
+      </div>
+      <div class="bg-fitzone-dark rounded-xl p-3 text-center">
+        <p class="text-fitzone-neon text-lg font-bold" id="modal-rest">—</p>
+        <p class="text-gray-500 text-xs">Rest</p>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex gap-3 px-5 mb-4">
+      <button id="tab-image" class="tab-btn tab-active" onclick="switchModalTab('image')">
+        <i class="fas fa-image mr-1"></i>Image Guide
+      </button>
+      <button id="tab-video" class="tab-btn" onclick="switchModalTab('video')">
+        <i class="fas fa-play mr-1"></i>Video Tutorial
+      </button>
+    </div>
+
+    <!-- Image pane -->
+    <div id="modal-image-pane" class="px-5">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <!-- Demo -->
+        <div>
+          <h4 class="text-xs font-bold text-gray-400 uppercase mb-2 tracking-wider">Exercise Demo</h4>
+          <div class="rounded-xl overflow-hidden bg-fitzone-dark" style="height:220px;">
+            <img id="modal-demo-img" src="" alt="Exercise demo" class="w-full h-full object-cover">
+          </div>
+          <p class="text-xs text-gray-500 mt-2 text-center italic">Hover to pause · Click for full view</p>
+        </div>
+        <!-- Muscle Diagrams -->
+        <div>
+          <h4 class="text-xs font-bold text-gray-400 uppercase mb-2 tracking-wider">Muscles Targeted</h4>
+          <div class="grid grid-cols-2 gap-3 mb-3">
+            <div id="modal-svg-front" style="height:180px;"></div>
+            <div id="modal-svg-back"  style="height:180px;"></div>
+          </div>
+          <div class="flex gap-4 text-xs">
+            <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full legend-primary inline-block"></span>Primary</div>
+            <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full legend-secondary inline-block"></span>Secondary</div>
+            <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full legend-inactive inline-block"></span>Inactive</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video pane -->
+    <div id="modal-video-pane" class="hidden px-5">
+      <div class="bg-fitzone-dark rounded-xl p-8 text-center">
+        <div class="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center mx-auto mb-4">
+          <i class="fab fa-youtube text-white text-2xl"></i>
+        </div>
+        <h4 class="text-xl font-bold mb-2">Watch the Tutorial</h4>
+        <p class="text-gray-400 text-sm mb-6">Learn the perfect form for this exercise from professional coaches and athletes.</p>
+        <a id="modal-yt-btn" href="#" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full font-bold transition text-sm">
+          <i class="fab fa-youtube"></i> Open YouTube Tutorial
+        </a>
+        <p class="text-xs text-gray-600 mt-4">Opens a YouTube search in a new tab with best-match tutorials</p>
+      </div>
+    </div>
+
+    <!-- Instructions & Tips -->
+    <div class="p-5 pt-4 grid grid-cols-1 md:grid-cols-2 gap-5 border-t border-fitzone-gray-light mt-4">
+      <div>
+        <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-3">How To Do It</h4>
+        <p class="text-gray-300 text-sm mb-3" id="modal-description"></p>
+        <ol id="modal-instructions" class="space-y-2 text-sm text-gray-300"></ol>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-3">Pro Tips</h4>
+        <ul id="modal-tips" class="space-y-2 text-sm text-gray-300"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ BMI MODAL ══════════════════════════════ -->
+<div id="bmi-calculator" class="hidden">
+  <div class="bg-fitzone-gray rounded-2xl p-6 max-w-sm w-full mx-4">
+    <div class="flex justify-between items-center mb-5">
+      <h3 class="text-xl font-bold">BMI Calculator</h3>
+      <button id="close-bmi-btn" class="text-gray-400 hover:text-white"><i class="fas fa-times text-xl"></i></button>
+    </div>
+    <form id="bmi-form" class="space-y-4">
+      <div><label class="block text-sm font-bold mb-1.5">Height (cm)</label><input type="number" id="bmi-height" placeholder="e.g. 170"></div>
+      <div><label class="block text-sm font-bold mb-1.5">Weight (kg)</label><input type="number" id="bmi-weight" placeholder="e.g. 70"></div>
+      <button type="submit" class="w-full bg-fitzone-neon text-fitzone-dark font-bold py-2.5 rounded-xl btn-neon">CALCULATE</button>
+    </form>
+    <div id="bmi-result" class="hidden mt-4 bg-fitzone-dark rounded-xl p-4 text-center">
+      <p class="text-sm text-gray-400 mb-1">Your BMI</p>
+      <p id="bmi-value" class="text-4xl font-bold text-fitzone-neon mb-1">—</p>
+      <p id="bmi-category" class="text-lg font-bold">—</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ SCRIPTS ════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/programs.js"></script>
+</body>
+</html>
